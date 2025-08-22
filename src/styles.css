@@ -1,7 +1,13 @@
-html, body {
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+body {
+  background-color: #05080f;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #201a3c; /* fallback in case some component doesn't cover */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+html {
+  background-color: #05080f;
 }

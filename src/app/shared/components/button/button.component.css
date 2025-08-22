@@ -1,0 +1,121 @@
+/* Existing neon-gradient styles stay the same */
+.neon-gradient {
+  background: linear-gradient(135deg, #22d9ff 0%, #8b36e1 100%);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(34, 217, 255, 0.3);
+  
+  /* Neon glow effect */
+  box-shadow: 
+    0 0 10px rgba(34, 217, 255, 0.3),
+    0 0 20px rgba(34, 217, 255, 0.2),
+    0 0 30px rgba(139, 54, 225, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  transition: all 0.3s ease-out;
+}
+
+.neon-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.neon-gradient:hover::before {
+  left: 100%;
+}
+
+.neon-gradient:hover {
+  background: linear-gradient(135deg, #1bc4e8 0%, #7a2cc7 100%);
+  transform: translateY(-2px) scale(1.05);
+  
+  /* Enhanced neon glow on hover */
+  box-shadow: 
+    0 0 15px rgba(34, 217, 255, 0.5),
+    0 0 30px rgba(34, 217, 255, 0.3),
+    0 0 45px rgba(139, 54, 225, 0.3),
+    0 0 60px rgba(34, 217, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.neon-gradient:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Pulsing effect */
+.neon-gradient {
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  from {
+    box-shadow: 
+      0 0 10px rgba(34, 217, 255, 0.3),
+      0 0 20px rgba(34, 217, 255, 0.2),
+      0 0 30px rgba(139, 54, 225, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  to {
+    box-shadow: 
+      0 0 15px rgba(34, 217, 255, 0.4),
+      0 0 25px rgba(34, 217, 255, 0.3),
+      0 0 35px rgba(139, 54, 225, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* NEW: Neon Ghost Button Styles */
+.neon-ghost {
+  background: transparent;
+  border: 1px solid rgba(34, 217, 255, 0.4);
+  color: #22d9ff;
+  position: relative;
+  overflow: hidden;
+  
+  /* Subtle glow */
+  box-shadow: 
+    0 0 5px rgba(34, 217, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  transition: all 0.4s ease-out;
+}
+
+.neon-ghost::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(34, 217, 255, 0.1) 0%, rgba(139, 54, 225, 0.1) 100%);
+  transition: left 0.5s ease-out;
+  z-index: -1;
+}
+
+.neon-ghost:hover {
+  background: linear-gradient(135deg, #22d9ff 0%, #8b36e1 100%);
+  color: #000000;
+  border-color: rgba(34, 217, 255, 0.8);
+  transform: translateY(-2px) scale(1.05);
+  
+  /* Enhanced neon glow on hover */
+  box-shadow: 
+    0 0 15px rgba(34, 217, 255, 0.4),
+    0 0 25px rgba(34, 217, 255, 0.3),
+    0 0 35px rgba(139, 54, 225, 0.2),
+    0 0 50px rgba(34, 217, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.neon-ghost:hover::before {
+  left: 100%;
+}
+
+.neon-ghost:active {
+  transform: translateY(-1px) scale(1.02);
+}

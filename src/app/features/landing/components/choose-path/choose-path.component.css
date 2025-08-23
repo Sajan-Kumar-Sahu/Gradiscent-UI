@@ -1,0 +1,144 @@
+/* Neon text effect for heading */
+.neon-text {
+  background: linear-gradient(135deg, #22d9ff 0%, #8b36e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.neon-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #22d9ff;
+  text-shadow: 
+    0 0 10px rgba(34, 217, 255, 0.4),
+    0 0 20px rgba(34, 217, 255, 0.2),
+    0 0 30px rgba(139, 54, 225, 0.2);
+  opacity: 0.6;
+  z-index: -1;
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow: 
+      0 0 10px rgba(34, 217, 255, 0.4),
+      0 0 20px rgba(34, 217, 255, 0.2),
+      0 0 30px rgba(139, 54, 225, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 15px rgba(34, 217, 255, 0.6),
+      0 0 25px rgba(34, 217, 255, 0.3),
+      0 0 35px rgba(139, 54, 225, 0.3);
+  }
+}
+
+/* Path Cards */
+.path-card {
+  background-color: #1e2127;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.path-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #22d9ff, #8b36e1);
+  border-radius: 12px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.path-card:hover::before {
+  opacity: 1;
+}
+
+.path-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(34, 217, 255, 0.1);
+}
+
+/* Icon Container */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.icon-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 20%;
+  border: 2px solid #22d9ff;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease-out;
+}
+
+.path-card:hover .icon-inner {
+  box-shadow: 
+    0 0 20px rgba(34, 217, 255, 0.5),
+    0 0 40px rgba(34, 217, 255, 0.3);
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(34, 217, 255, 0.5),
+      0 0 40px rgba(34, 217, 255, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 25px rgba(34, 217, 255, 0.7),
+      0 0 50px rgba(34, 217, 255, 0.4);
+  }
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .path-card {
+    margin-bottom: 2rem;
+  }
+  
+  .neon-text {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

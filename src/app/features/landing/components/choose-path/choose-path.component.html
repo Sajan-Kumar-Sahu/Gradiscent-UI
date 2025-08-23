@@ -1,0 +1,71 @@
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-[#05080f]">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        <span class="neon-text" data-text="Choose Your Path">Choose Your Path</span>
+      </h2>
+      <p class="text-xl sm:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+        Select the experience that fits your journey. Each path is tailored to help you succeed.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div 
+        *ngFor="let card of pathCards" 
+        class="path-card group">
+        
+        <!-- Icon Container -->
+        <div class="icon-container group-hover">
+          <div class="icon-inner">
+           <i [class]="card.icon + ' text-cyan-400 text-2xl'"></i>
+          </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="p-6 pt-4">
+          <!-- Card Title -->
+          <h3 class="card-title group-hover:text-[#22d9ff] transition-colors duration-300">
+            {{ card.title }}
+          </h3>
+          
+          <!-- Card Description -->
+          <p class="text-gray-400 text-base mb-6 leading-relaxed">
+            {{ card.description }}
+          </p>
+          
+          <!-- Bullet Points -->
+          <ul class="space-y-3 mb-8">
+            <li 
+              *ngFor="let point of card.bulletPoints" 
+              class="flex items-start text-gray-300 text-sm">
+              <i class="fas fa-angle-right text-[#22d9ff] mr-3 mt-0 font-bold"></i>
+              <span>{{ point }}</span>
+            </li>
+          </ul>
+          
+          <!-- Get Started Button -->
+          <div class="mt-auto">
+            <app-button
+                variant="gradient"
+                size="md"
+                (onClick)="onGetStarted(card.title)"
+                class="w-full text-center font-extrabold py-3 text-lg">
+                
+                <!-- Conditional text -->
+                <ng-container *ngIf="card.title === 'Student'; else comingSoon">
+                Get Started
+                </ng-container>
+                <ng-template #comingSoon>
+                Coming Soon...
+                </ng-template>
+                
+            </app-button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

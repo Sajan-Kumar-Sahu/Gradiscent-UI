@@ -47,10 +47,7 @@
   transform: translateY(-1px) scale(1.02);
 }
 
-/* Pulsing effect */
-.neon-gradient {
-  animation: neon-pulse 2s ease-in-out infinite alternate;
-}
+
 
 @keyframes neon-pulse {
   from {

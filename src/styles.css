@@ -1,13 +1,11 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
-body {
-  background-color: #05080f;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-}
 
-html {
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
   background-color: #05080f;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

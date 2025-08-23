@@ -1,0 +1,56 @@
+<!-- features.component.html -->
+<section class="py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Main Heading -->
+    <div class="text-center mb-4">
+      <h2 class="text-5xl md:text-6xl font-bold text-white mb-2">
+        <span class="text-white">
+          Powerful Features For
+        </span>
+      </h2>
+      <h2 class="text-5xl md:text-6xl font-bold">
+        <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          Modern Learning
+        </span>
+      </h2>
+    </div>
+
+    <!-- Subheading -->
+    <p class="text-center text-gray-400 text-xl mb-16 max-w-3xl mx-auto">
+      Everything you need to transform your learning experience and achieve your dreams.
+    </p>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div 
+        *ngFor="let feature of featureCards" 
+        class="feature-card group relative bg-gray-900/50 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 hover:border-cyan-400/60 transition-all duration-300 overflow-hidden"
+      >
+        <!-- Icon Container -->
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl flex items-center justify-center p-0.5">
+            <div class="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
+              <i [class]="feature.icon + ' text-cyan-400 text-2xl'"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="text-center">
+          <h3 class="text-xl font-semibold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300">
+            {{ feature.title }}
+          </h3>
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+            {{ feature.description }}
+          </p>
+        </div>
+
+        <!-- Subtle glow effect on hover -->
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/5 via-blue-500/5 to-purple-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        
+        <!-- Hover sliding line effect at bottom -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
